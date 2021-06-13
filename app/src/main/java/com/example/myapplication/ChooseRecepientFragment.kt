@@ -7,10 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import androidx.core.os.bundleOf
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -28,7 +30,7 @@ class ChooseRecepientFragment : Fragment(), View.OnClickListener {
     private var param2: String? = null
 
     lateinit var navController: NavController
-    private var recipientName_edittext :TextView? = null
+    private var recipientName_edittext: EditText? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -77,11 +79,16 @@ class ChooseRecepientFragment : Fragment(), View.OnClickListener {
 
     override fun onClick(v: View?) {
 
-        when(v!!.id){
+        when (v!!.id) {
             R.id.next_button -> {
                 if (!TextUtils.isEmpty(recipientName_edittext?.text.toString())) {
-                    val bundle = bundleOf("recipientName" to recipientName_edittext?.text.toString())
-                    navController.navigate(R.id.action_chooseRecepientFragment_to_specifyAmountFragment,bundle)
+//                    val bundle = bundleOf("recipientName" to recipientName_edittext?.text.toString())
+//                    navController.navigate(R.id.action_chooseRecepientFragment_to_specifyAmountFragment)
+                    findNavController().navigate(
+                        ChooseRecepientFragmentDirections.actionChooseRecepientFragmentToSpecifyAmountFragment(
+                            recipientName_edittext?.text.toString()
+                        )
+                    )
                 }
             }
 

@@ -6,8 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.navArgs
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -25,6 +27,8 @@ class MainFragment : Fragment(), View.OnClickListener {
     private var param2: String? = null
 
     lateinit var navController: NavController
+    val args: MainFragmentArgs by navArgs()
+    var viewTransaction_btn:Button? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,6 +73,7 @@ class MainFragment : Fragment(), View.OnClickListener {
 
         navController = Navigation.findNavController(view)
 
+        Toast.makeText(context,args.data,Toast.LENGTH_LONG).show()
         view.findViewById<Button>(R.id.viewTransaction_btn).setOnClickListener(this)
         view.findViewById<Button>(R.id.sendMoney_btn).setOnClickListener(this)
         view.findViewById<Button>(R.id.viewBalance_Btn).setOnClickListener(this)

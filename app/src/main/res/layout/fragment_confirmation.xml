@@ -8,17 +8,17 @@
     tools:context=".ConfirmationFragment" >
 
     <TextView
-        android:id="@+id/amount_textView"
+        android:id="@+id/name_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/textView4"
-        app:layout_constraintEnd_toEndOf="@+id/textView4"
-        app:layout_constraintStart_toStartOf="@+id/textView4" />
+        app:layout_constraintBottom_toTopOf="@+id/amount_textView"
+        app:layout_constraintEnd_toEndOf="@+id/amount_textView"
+        app:layout_constraintStart_toStartOf="@+id/amount_textView" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/amount_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Amount Sent"

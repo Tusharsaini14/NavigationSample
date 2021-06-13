@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.navigation.fragment.navArgs
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -20,6 +22,11 @@ class ConfirmationFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+
+    var name_textView :TextView? = null
+    var amount_textView :TextView? = null
+
+    val args : ConfirmationFragmentArgs by navArgs()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,5 +62,14 @@ class ConfirmationFragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        name_textView = view.findViewById(R.id.name_textView)
+        name_textView!!.text = args.recipientName
+        amount_textView = view.findViewById(R.id.amount_textView)
+        amount_textView!!.text = args.recipientAmount.toString()
     }
 }
